@@ -1,0 +1,32 @@
+[
+  {
+    "model": "beats.song",
+    "pk": 1,
+    "fields": {
+      "title": "Avengers Theme",
+      "artist": "Alan Silvestri",
+      "album": "Avengers Assemble",
+      "song_file": "music/avengers.mp3"
+    }
+  },
+  {
+    "model": "beats.song",
+    "pk": 2,
+    "fields": {
+      "title": "We will rock you",
+      "artist": "Queen",
+      "album": "News of the World",
+      "song_file": "music/rock.mp3"
+    }
+  },
+  {
+    "model": "beats.song",
+    "pk": 3,
+    "fields": {
+      "title": "Joker BGM",
+      "artist": "Hildur Guðnadóttir",
+      "album": "Joker",
+      "song_file": "music/joker.mp3"
+    }
+  }
+]
