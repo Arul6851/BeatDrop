@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BeatDrop - About Us</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-black text-white">
+    <nav
+      class="bg-green-600 shadow-md px-4 py-2 fixed w-full top-0 z-50 flex justify-between items-center"
+    >
+      <a href="{% url 'home' %}" class="text-white font-bold text-xl"
+        >BeatDrop</a
+      >
+      {% if user.is_authenticated %}
+      <a href="" class="text-white hover:text-gray-400">{{ user.username }}</a>
+      <a href="{% url 'logout' %}" class="text-white hover:text-gray-400"
+        >Logout</a
+      >
+      {% else %}
+      <a href="{% url 'login' %}" class="text-white hover:text-gray-400"
+        >Login</a
+      >
+      <a href="{% url 'register' %}" class="text-white hover:text-gray-400"
+        >Register</a
+      >
+      {% endif %}
+    </nav>
+
+    <main
+      class="container mx-auto px-4 py-16 flex flex-col items-center justify-center"
+    >
+      <h1 class="text-4xl font-bold mb-8 text-white">About BeatDrop</h1>
+      <p class="text-gray-400 text-lg mb-12 leading-relaxed">
+        BeatDrop is your ultimate music destination, designed to keep you
+        immersed in the world of sound. We're committed to providing a seamless
+        music discovery experience, ensuring that you're always connected to the
+        latest and greatest tunes.
+      </p>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="flex flex-col space-y-4">
+          <h2 class="text-2xl font-bold text-white">Our Mission</h2>
+          <p class="text-gray-400 text-base">
+            At BeatDrop, we're dedicated to empowering music lovers like you.
+            Our mission is to break down barriers and unlock the full potential
+            of your musical journey. We strive to create a platform that not
+            only entertains but also educates and inspires, fostering a deeper
+            connection with the music you love.
+          </p>
+        </div>
+        <div class="flex flex-col space-y-4">
+          <h2 class="text-2xl font-bold text-white">The BeatDrop Team</h2>
+          <p class="text-gray-400 text-base">
+            Behind BeatDrop is a diverse team of individuals united by their
+            passion for music and technology. From developers to designers,
+            music enthusiasts to data analysts, we work tirelessly to bring you
+            a platform that redefines how you experience music. Together, we're
+            shaping the future of music discovery.
+          </p>
+        </div>
+      </section>
+
+      <h2 class="text-2xl font-bold text-white mb-4">Why BeatDrop?</h2>
+      <ul class="list-disc space-y-2 text-gray-400 text-base mb-12">
+        <li>
+          Discover new horizons: Break free from the ordinary and explore a
+          universe of musical possibilities.
+        </li>
+        <li>
+          Stay in the loop: With BeatDrop, you'll always be ahead of the curve,
+          discovering emerging artists and genres before they hit the
+          mainstream.
+        </li>
+        <li>
+          Your personal soundtrack: Let BeatDrop curate a personalized playlist
+          tailored to your unique tastes and preferences.
+        </li>
+      </ul>
+
+      <a
+        href="{% url 'home' %}"
+        class="text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:ring-opacity-50 focus:ring-blue-500 font-medium rounded-lg text-center px-5 py-3 text-base leading-6 shadow-md"
+        >Start Your Musical Journey</a
+      >
+    </main>
+
+    <footer class="bg-green-600 text-white-400 text-center py-4">
+      <p>&copy; {{ year }} BeatDrop</p>
+    </footer>
+  </body>
+</html>
