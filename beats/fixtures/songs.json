@@ -3,30 +3,30 @@
     "model": "beats.song",
     "pk": 1,
     "fields": {
-      "title": "Avengers Theme",
-      "artist": "Alan Silvestri",
-      "album": "Avengers Assemble",
-      "song_file": "music/avengers.mp3"
+      "title": "Mr.Brightside",
+      "artist": "The Killers",
+      "album": "Hot Fuss",
+      "song_file": "music/brightside.mp3"
     }
   },
   {
     "model": "beats.song",
     "pk": 2,
     "fields": {
-      "title": "We will rock you",
-      "artist": "Queen",
-      "album": "News of the World",
-      "song_file": "music/rock.mp3"
+      "title": "All the things she said",
+      "artist": "t.A.T.u",
+      "album": "200 km/h in the Wrong Lane",
+      "song_file": "music/thingsSheSaid.mp3"
     }
   },
   {
     "model": "beats.song",
     "pk": 3,
     "fields": {
-      "title": "Joker BGM",
-      "artist": "Hildur Guðnadóttir",
-      "album": "Joker",
-      "song_file": "music/joker.mp3"
+      "title": "Runaway",
+      "artist": "Kanye West",
+      "album": "My Beautiful Dark Twisted Fantasy",
+      "song_file": "music/runaway.mp3"
     }
   }
 ]

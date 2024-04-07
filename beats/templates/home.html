@@ -117,14 +117,14 @@
             <source src="{{ song.song_file }}" type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
-          {% if song not in watch_later %}
+          {% if song not in watch_later_songs %}
           <form action="{% url 'addtowatchlater' song.id %}" method="post">
             {% csrf_token %}
             <button
               type="submit"
               class="text-white hover:text-gray-400 px-3 py-1 bg-green-500 hover:bg-green-400 rounded-full font-medium"
             >
-              Add to Watch Later
+              Add to Listen Later
             </button>
           </form>
           {% endif %}

@@ -38,9 +38,9 @@
       </p>
 
       <ul class="list-disc space-y-2 text-gray-400 text-base">
-        {% for song in saved_songs %}
+        {% for song in watch_later_songs %}
         <li><a>{{ song.title }}</a> - {{ song.artist }}</li>
-        {% endfor %} {% if not saved_songs %}
+        {% endfor %} {% if not watch_later_songs%}
         <p class="text-gray-400">Your saved songs list is empty.</p>
         {% endif %}
       </ul>
