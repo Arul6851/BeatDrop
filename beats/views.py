@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import LoginForm, RegistrationForm
+from beats.forms import LoginForm, RegistrationForm
 from django.contrib.auth import authenticate, login
+from beats.models import Song, WatchLater
+from datetime import date
 
 # Create your views here.
 def register_view(request):
@@ -29,3 +31,21 @@ def login_view(request):
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
+
+def home_view(request):
+  songs = Song.objects.all()
+  search_query = request.GET.get('query', '')
+  if(request.user.is_anonymous == False):
+    user = request.user
+    watch_later_songs = WatchLater.objects.filter(user=user)
+  else:
+    watch_later_songs = []
+
+  watch_later_list = []
+
+  for watch_later in watch_later_songs:
+      watch_later_list.append(watch_later.song)
+  if search_query:
+    songs = songs.filter(title__icontains=search_query)
+  context = {'songs': songs, 'search_query': search_query, 'current_year': date.today().year, 'watch_later': watch_later_list}
+  return render(request, 'home.html', context)
