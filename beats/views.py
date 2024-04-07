@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from beats.forms import LoginForm, RegistrationForm
 from django.contrib.auth import authenticate, login, logout
+from beats.forms import LoginForm, RegistrationForm
 from beats.models import Song, WatchLater
 from datetime import date
 

@@ -23,6 +23,5 @@ from BeatDrop import settings
 urlpatterns = [
   path('', include('beats.urls')),
   
-] 
-#+ static(settings.SEARCH_URL, document_root=settings.SEARCH_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.SEARCH_URL, document_root=settings.SEARCH_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
