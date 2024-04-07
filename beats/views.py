@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from beats.forms import LoginForm, RegistrationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from beats.models import Song, WatchLater
 from datetime import date
 
@@ -52,3 +52,23 @@ def home_view(request):
 
 def about(request):
   return render(request, 'about.html')
+
+def add_to_watch_later(request, song_id):
+    if request.method == 'POST':
+        user = request.user  
+        song = Song.objects.get(pk=song_id)
+        if(WatchLater.objects.filter(user=user, song=song).exists()):
+            return redirect('watchlater')
+        watch = WatchLater.objects.create(user=user, song=song)
+        print(watch)
+    return redirect('watchlater')  
+
+def watch_later_list(request):
+    user = request.user
+    watch_later_songs = WatchLater.objects.filter(user=user)  # Optimize query with select_related
+    context = {'watch_later_songs': watch_later_songs}
+    return render(request, 'watchlater.html', context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
