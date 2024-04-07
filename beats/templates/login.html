@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VibeShift - Login</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white h-screen min-h-screen flex flex-col">
+  <div class="container mx-auto px-4 py-16 flex flex-col items-center justify-center h-full">
+    <h1 class="text-3xl font-bold mb-4 text-white">Login</h1>
+    <form action="{% url 'login' %}" method="post" class="flex flex-col space-y-4 w-full max-w-md">
+      {% csrf_token %}
+      <div class="flex items-center mb-2">
+        <label for="username" class="text-gray-400 text-sm mr-2">Username:</label>
+        <input id="password" name="username" type="text" class="rounded-md bg-transparent border border-gray-400 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 w-full">
+          {{ form.username.as_p }}
+      </input>
+      </div>
+      <div class="flex items-center mb-2">
+        <label for="password" class="text-gray-400 text-sm mr-2">Password:</label>
+        <input id="password" name="password" type="password" class="rounded-md bg-transparent border border-gray-400 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 w-full">
+          {{ form.password.as_p }}
+      </input>
+      </div>
+      <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 rounded-full px-4">Login</button>
+    </form>
+    {% if error_message %}
+      <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>
